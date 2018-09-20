@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://192.168.1.199:3306/mysql</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+
+        <!--连接池-->
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.timeout">5000</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+         <!--根据需要自动创建数据表-->
+         <property name="hbm2ddl.auto">update</property>
+        <!--显示hibernate持久化操作所生成的sql-->
+        <property name="show_sql">true</property>
+        <!--将sql脚本格式化后在输出-->
+        <property name="hibernate.format_sql">true</property>
+
+        <!--罗列持久化类的类名-->
+        <mapping class="com.zhcc.domain.News"/>
+    </session-factory>
+</hibernate-configuration>
